@@ -53,7 +53,7 @@ public class HelloApplication extends Application {
         //Set Margins
         vbox.setMargin(label, new Insets(100,50 , 20, 50));
 
-        Scene scene =  new Scene(vbox, 300, 250);
+        Scene scene =  new Scene(vbox, 500, 500);
 
         primaryStage.setScene(scene);
 
