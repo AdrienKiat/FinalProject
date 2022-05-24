@@ -16,7 +16,7 @@ import javafx.geometry.Pos;
 
 public class HelloApplication extends Application {
 
-    private Label label;
+    Label label;
     Stage window;
     Button button;
 
@@ -28,7 +28,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage primaryStage) {
 
-        /*Set stage title
+        //Set stage title
         primaryStage.setTitle("My reaction game");
 
         //Create Label and Button
@@ -36,45 +36,29 @@ public class HelloApplication extends Application {
 
         label = new Label("Click to start the game. ");
 
-        Button button = new Button("Here!");*/
-
-        window = primaryStage;
-        window.setTitle("My reaction game");
-        Label messageLabel = new Label("SharpShooter");
-
-        label = new Label("Click to start the game. ");
         button = new Button("Click here");
 
-        button.setOnAction(e -> NewWindow.display("The Sharpshooter game","This is a new window"));
+        //Action happening when a button is clicked(Open a new window)
+        button.setOnAction(e -> NewWindow.display());
 
+        //Create VBox
         StackPane layout = new StackPane();
+
         layout.getChildren().add(button);
+
         VBox vbox = new VBox(messageLabel,label, button, layout);
 
         vbox.setAlignment(Pos.CENTER);
 
+        //Set Margins
         vbox.setMargin(label, new Insets(100,50 , 20, 50));
+
         Scene scene =  new Scene(vbox, 300, 250);
-        window.setScene(scene);
-        window.show();
 
-        /*Register event handler
-        button.setOnAction(new ButtonClickHandler());
+        primaryStage.setScene(scene);
 
-        //Margin of Label and Button
-        VBox vbox = new VBox(messageLabel,label, button);
+        primaryStage.show();
 
-        vbox.setAlignment(Pos.CENTER);
-
-        vbox.setMargin(label, new Insets(100,50 , 20, 50));
-
-        //Create scene
-        Scene scene1 = new Scene(vbox, 500, 300);
-
-        primaryStage.setScene(scene1);
-
-        //Show window
-        primaryStage.show();*/
     }
 
 }
