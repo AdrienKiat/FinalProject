@@ -1,102 +1,62 @@
 package com.example.javafxproject;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Pos;
+import javafx.scene.Group;
+import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Shape;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+
 
 public class NewWindow {
 
 
     private static double r = 50;
 
-    static int count1 = 0;
-    static int count2 = 0;
 
     public static void display() {
 
         Stage window = new Stage();
 
-        HBox root = new HBox();
-
-
+        Group root = new Group();
 
         window.initModality(Modality.APPLICATION_MODAL);
 
         window.setTitle("Sharpshooter");
 
-        Label circle = new Label();
+        window.setMinWidth(300);
 
-        circle.setText("Clicks on circle: 0");
+        window.setMinHeight(250);
 
-        circle.setMaxHeight(25);
+        Label label = new Label();
 
-        circle.setMaxWidth(25);
+        label.setText("Click on the shapes");
 
-        circle.setScaleX(25);
-
-        circle.setScaleY(25);
-
-        Label square = new Label();
-
-        square.setText("Clicks on square: 0");
-
-        square.setMaxHeight(25);
-
-        square.setMaxWidth(25);
-
-        square.setScaleX(25);
-
-        square.setScaleY(25);
+        label.setAlignment(Pos.CENTER);
 
 
-        //Round Button
+
         Button roundbutton = new Button("Circle");
 
         roundbutton.setShape(new Circle(r));
-
         roundbutton.setMinSize(2*r, 2*r);
 
         roundbutton.setMaxSize(2*r, 2*r);
 
-
-
-        roundbutton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                count1++;
-                circle.setText(Integer.toString(count1));
-            }
-        });
-
-        //Square Button
         Button squarebutton = new Button("Square");
 
-        squarebutton.setMinSize(100,100);
+        squarebutton.setMinSize(100, 100);
 
-        squarebutton.setMaxSize(100,100);
+        squarebutton.setMaxSize(200,200);
 
-        squarebutton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                count2++;
-                square.setText(Integer.toString(count2));
-            }
-        });
+        Scene scene = new Scene(root, 300,300);
 
-
-        root.getChildren().addAll(circle, square,roundbutton,squarebutton);
-
-        root.setAlignment(Pos.CENTER);
-        root.setSpacing(30);
-
-        Scene scene = new Scene(root, 500,500);
+        root.getChildren().addAll(label, roundbutton,squarebutton);
 
         window.setScene(scene);
 
